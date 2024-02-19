@@ -65,6 +65,9 @@ const materialModules = [
     CommonModule,
     materialModules
   ],
-  exports:[ materialModules]
+  exports:[
+     CommonModule,
+     materialModules
+    ]
 })
 export class SharedModule { }
