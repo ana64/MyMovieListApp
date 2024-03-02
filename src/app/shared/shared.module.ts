@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -28,6 +29,9 @@ import { MatTreeModule } from '@angular/material/tree';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatRadioModule} from '@angular/material/radio';
+
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 
 const materialModules = [
   MatAutocompleteModule,
@@ -63,8 +67,13 @@ const materialModules = [
 @NgModule({
   imports: [
     CommonModule,
-    materialModules
+    materialModules,
+    ProgressSpinnerModule
   ],
-  exports:[ materialModules]
+  exports:[
+     CommonModule,
+     materialModules,
+     ProgressSpinnerModule
+    ]
 })
 export class SharedModule { }

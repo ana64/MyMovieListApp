@@ -1,5 +1,29 @@
-<div *ngFor="let item of list" class="app-movies-inline-block">
-        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{item.poster_path}}"
-         alt="{{ item.title }}">
+
+<div  *ngIf="!isLoading; else elseBlock" >
+<div class='row'
+*ngFor="let movie of movies" class="app-movies-inline-block">
+    <div class="col-11 p-1">
+      <mat-card class="app-movies-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ movie.title }}</mat-card-title>
+            <mat-card-subtitle>{{ movie.release_date }}</mat-card-subtitle>
+            <img mat-card-xl-image 
+            src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}"
+            alt="{{ movie.title }}">
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          {{movie.overview}}
+        </mat-card-content>
+      </mat-card>  
+      </div>               
 </div>
-    
+</div>
+<ng-template #elseBlock>
+  <div class=" justify-content-center progress-spinner-container">
+    <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+  </div>
+</ng-template>
+
+

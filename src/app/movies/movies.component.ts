@@ -1,5 +1,5 @@
 import { Component, OnDestroy , OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -8,22 +8,23 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MoviesComponent implements OnInit, OnDestroy {
 
-  url:string = 'https://api.themoviedb.org/3/discover/movie?api_key=e6171b13d4159aa39793cc0b447bbb93&sort_by=popularity.desc';
-  list: any;
-constructor(private http: HttpClient){
+  movies: any ;
+  isLoading:boolean = false;
 
+constructor(private movieService: MoviesService){
 }
 
 
 ngOnInit(): void {
-  this.http.get(this.url).subscribe( (data:any)=>{
-    console.log(data)
-    this.list = data.results;
-  })
+   this.isLoading = true;
+
+  this.movieService.getMovies().subscribe((data:any)=>{
+    this.isLoading = false;
+    this.movies = data.results;
+  });
+
 }
 
-
-ngOnDestroy(): void {
-}
+ngOnDestroy(): void {}
 
 }
