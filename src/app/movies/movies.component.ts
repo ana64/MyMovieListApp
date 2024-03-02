@@ -9,14 +9,19 @@ import { MoviesService } from '../services/movies.service';
 export class MoviesComponent implements OnInit, OnDestroy {
 
   movies: any ;
+  isLoading:boolean = false;
 
 constructor(private movieService: MoviesService){
 }
 
 
 ngOnInit(): void {
+   this.isLoading = true;
 
-  this.movieService.getMovies().subscribe((data:any)=>this.movies = data.results);
+  this.movieService.getMovies().subscribe((data:any)=>{
+    this.isLoading = false;
+    this.movies = data.results;
+  });
 
 }
 
