@@ -69,6 +69,7 @@ const materialModules = [
     CommonModule,
     materialModules,
     ProgressSpinnerModule
+    
   ],
   exports:[
      CommonModule,

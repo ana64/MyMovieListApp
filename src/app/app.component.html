@@ -6,7 +6,7 @@
 
     <p class="mx-auto">  {{ title }} </p>
 
-      <mat-menu #menu="matMenu" class="bg-dark ">
+      <mat-menu #menu="matMenu" class="bg-dark">
           <ng-container *ngFor="let link of links">
             <button mat-menu-item class="text-white" routerLinkActive="active" routerLink="{{ link.href }}">{{ link.name }}</button>
           </ng-container>
@@ -14,10 +14,10 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<main class="container">
+<main class="container" style="margin-bottom: 15px;">
 <router-outlet></router-outlet>
 </main>
 
-<footer class="text-center bg-black text-white p-3 footer">
+<footer class="text-center bg-black text-white p-3">
   <span>Copyright 2024</span>
 </footer> 
