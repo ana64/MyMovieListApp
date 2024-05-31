@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'My Movie List';
-  
+  title: string = 'My Movie List';
+  currentYear: number = new Date().getFullYear();
 
   links = [
    { href:'/movies', name:'Movies' }
