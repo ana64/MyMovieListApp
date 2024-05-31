@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 @Injectable({
@@ -12,6 +12,8 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) { }
 
  getMovies(){
-    return this.httpClient.get(this.url);
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.httpClient.get(this.url,{headers:headers});
   }
 }
